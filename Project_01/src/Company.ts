@@ -1,19 +1,23 @@
-import { faker } from '@faker-js/faker'
+import { faker } from "@faker-js/faker";
 
 export class Company {
-  name: string
-  catchPhrase: string
+  name: string;
+  catchPhrase: string;
   location: {
-    lat: number
-    long: number
-  }
+    lat: number;
+    long: number;
+  };
 
   constructor() {
-    this.name = faker.company.name()
-    this.catchPhrase = faker.company.catchPhrase()
+    this.name = faker.company.name();
+    this.catchPhrase = faker.company.catchPhrase();
     this.location = {
       lat: Number(faker.address.latitude()),
       long: Number(faker.address.longitude()),
-    }
+    };
+  }
+
+  markerContent(): string {
+    return `Companyname: ${this.name}`;
   }
 }
